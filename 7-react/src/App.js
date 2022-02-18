@@ -6,13 +6,29 @@ import { Component } from 'react'
 // import UnMounting from './5-UnMounting'
 // import ErrorBoundaries from './6-ErrorBoundaries'
 // import DefaultProps from './7-DefaultProps'
-import ListKey from './8-ListKey'
+// import ListKey from './8-ListKey'
+// import Fragment from './9-Fragment'
+// import Portal from './10-Portal'
+// import Form from './11-Form'
+// import AdvanceSetState from './12-AdvanceSetState'
+// import CreateRef from './13-CreateRef'
+// import PureComponent from './14-PureComponent'
+// import HOC from './15-HOC/App'
+import TableApp from './exercise/Table'
 
 class App extends Component {
   render () {
     return (
       <div>
-        <ListKey />
+        <TableApp />
+        {/* <HOC /> */}
+        {/* <PureComponent /> */}
+        {/* <CreateRef /> */}
+        {/* <AdvanceSetState /> */}
+        {/* <Form /> */}
+        {/* <Portal /> */}
+        {/* <Fragment /> */}
+        {/* <ListKey /> */}
         {/* <DefaultProps name='Ali' color='green' />
             <DefaultProps name='Eli' />
             <DefaultProps color='red' /> */}
