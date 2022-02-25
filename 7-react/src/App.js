@@ -1,4 +1,4 @@
-import { Component } from 'react'
+// import { Component } from 'react'
 // import Counter from './1-Counter'
 // import LifeCycle from './2-LifeCycle'
 // import ForceUpdate from './3-ForceUpdate'
@@ -14,35 +14,47 @@ import { Component } from 'react'
 // import CreateRef from './13-CreateRef'
 // import PureComponent from './14-PureComponent'
 // import HOC from './15-HOC/App'
-import TableApp from './exercise/Table'
+// import TableApp from './exercise/Table'
+// import Stateless from './session-4/16-Stateless'
+// import ClassVsFunctionComponent from './session-4/17-ClassVsFunctionComponent'
+// import UseState from './session-4/18-UseState'
+// import UseEffect from './session-4/19-UseEffect'
+// import AdvanceEffectState from './session-4/20-AdvanceEffectState'
+// import HooksRules from './session-4/21-HooksRules'
+import CustomHooks from './session-4/22-CustomHooks'
 
-class App extends Component {
-  render () {
-    return (
-      <div>
-        <TableApp />
-        {/* <HOC /> */}
-        {/* <PureComponent /> */}
-        {/* <CreateRef /> */}
-        {/* <AdvanceSetState /> */}
-        {/* <Form /> */}
-        {/* <Portal /> */}
-        {/* <Fragment /> */}
-        {/* <ListKey /> */}
-        {/* <DefaultProps name='Ali' color='green' />
+function App () {
+  return (
+    <div>
+      <CustomHooks />
+      {/* <HooksRules /> */}
+      {/* <AdvanceEffectState /> */}
+      {/* <UseEffect /> */}
+      {/* <UseState /> */}
+      {/* <ClassVsFunctionComponent /> */}
+      {/* <Stateless /> */}
+      {/* <TableApp /> */}
+      {/* <HOC /> */}
+      {/* <PureComponent /> */}
+      {/* <CreateRef /> */}
+      {/* <AdvanceSetState /> */}
+      {/* <Form /> */}
+      {/* <Portal /> */}
+      {/* <Fragment /> */}
+      {/* <ListKey /> */}
+      {/* <DefaultProps name='Ali' color='green' />
             <DefaultProps name='Eli' />
             <DefaultProps color='red' /> */}
-        {/* <ErrorBoundaries /> */}
-        {/* <UnMounting /> */}
-        {/* <LegacyLifeCycle /> */}
-        {/* <ForceUpdate /> */}
-        {/* <LifeCycle /> */}
-        {/* <Counter count={5} name='ali' />
+      {/* <ErrorBoundaries /> */}
+      {/* <UnMounting /> */}
+      {/* <LegacyLifeCycle /> */}
+      {/* <ForceUpdate /> */}
+      {/* <LifeCycle /> */}
+      {/* <Counter count={5} name='ali' />
         <hr />
         <Counter count={10} /> */}
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default App
