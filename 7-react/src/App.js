@@ -21,12 +21,28 @@
 // import UseEffect from './session-4/19-UseEffect'
 // import AdvanceEffectState from './session-4/20-AdvanceEffectState'
 // import HooksRules from './session-4/21-HooksRules'
-import CustomHooks from './session-4/22-CustomHooks'
+// import CustomHooks from './session-4/22-CustomHooks'
+// import TodosUseState from './session-5/23-TodosUseState'
+// import UseReducer from './session-5/24-UseReducer'
+// import TodosUseReducer from './session-5/25-TodosUseReducer'
+// import UseMemo from './session-6/26-UseMemo'
+// import Memo from './session-6/27-Memo'
+// import UseRef from './session-6/28-UseRef'
+// import UseCallback from './session-6/29-UseCallback'
+import ContextApp from './context/App'
 
 function App () {
   return (
     <div>
-      <CustomHooks />
+      <ContextApp />
+      {/* <UseCallback /> */}
+      {/* <UseRef /> */}
+      {/* <Memo /> */}
+      {/* <UseMemo /> */}
+      {/* <TodosUseReducer /> */}
+      {/* <UseReducer /> */}
+      {/* <TodosUseState /> */}
+      {/* <CustomHooks /> */}
       {/* <HooksRules /> */}
       {/* <AdvanceEffectState /> */}
       {/* <UseEffect /> */}
