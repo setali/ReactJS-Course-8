@@ -1,19 +1,18 @@
 import React from 'react'
 import ThemeContext from './ThemeContext'
 import UserContext from './UserContext'
+import { Link } from 'react-router-dom'
 
 export default class Header extends React.Component {
   render () {
     return (
       <UserContext.Consumer>
-        {({ user, isLoggedIn, login, logout }) => (
+        {({ user, isLoggedIn, logout }) => (
           <ThemeContext.Consumer>
             {theme => (
               <div
+                className='box'
                 style={{
-                  border: '1px solid',
-                  padding: '1rem',
-                  margin: '1rem',
                   display: 'flex',
                   justifyContent: 'space-between',
                   ...theme
@@ -23,14 +22,11 @@ export default class Header extends React.Component {
                 <div>
                   {isLoggedIn && <span>{user.name}</span>}
                   {isLoggedIn ? (
-                    <span
-                      style={{ color: 'red', margin: '10px' }}
-                      onClick={logout}
-                    >
+                    <span className='logout' onClick={logout}>
                       Logout
                     </span>
                   ) : (
-                    <span onClick={login}>Login</span>
+                    <Link to='/login'>Login</Link>
                   )}
                 </div>
               </div>

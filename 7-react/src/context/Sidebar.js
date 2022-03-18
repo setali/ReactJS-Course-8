@@ -1,22 +1,34 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import ThemeContext from './ThemeContext'
+import './sidebar.css'
 
 export default class Sidebar extends React.Component {
   static contextType = ThemeContext
 
   render () {
     return (
-      <div
-        style={{
-          border: '1px solid',
-          padding: '1rem',
-          margin: '1rem',
-          ...this.context
-        }}
-      >
+      <div className='box sidebar' style={this.context}>
         <h4>Sidebar</h4>
         <ul>
-          <li>Home</li>
+          <li>
+            <NavLink to='/'>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to='/contact'>Contact</NavLink>
+          </li>
+          <li>
+            <NavLink to='/about'>About</NavLink>
+          </li>
+          <li>
+            <NavLink to='/post'>Posts</NavLink>
+          </li>
+          <li>
+            <NavLink to='/profile'>Profile</NavLink>
+          </li>
+          <li>
+            <NavLink to='/dashboard'>Dashboard</NavLink>
+          </li>
         </ul>
       </div>
     )

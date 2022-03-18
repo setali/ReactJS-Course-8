@@ -1,0 +1,15 @@
+.box {
+  border: 1px solid;
+  padding: 1rem;
+  margin: 1rem;
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.logout {
+  color: red;
+  margin: 10px;
+}
