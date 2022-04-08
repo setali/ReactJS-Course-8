@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux example</title>
+  </head>
+  <body>
+    <span id="value"></span>
+    <button id="inc">+</button>
+    <button id="inc2">+2</button>
+    <button id="inc-if-odd">+ if odd</button>
+    <button id="dec">-</button>
+    <button id="dec-async">- async</button>
+
+    <script src="https://unpkg.com/@reduxjs/toolkit@1.8.1/dist/redux-toolkit.umd.js"></script>
+
+    <script>
+      const increment = RTK.createAction('INC')
+      const decrement = RTK.createAction('DEC')
+
+      const reducer = RTK.createReducer(0, {
+        [increment]: (state, { type, payload = 1 }) => state + payload,
+        [decrement]: (state, { type, payload = 1 }) => state - payload
+      })
+
+      const store = RTK.configureStore({ reducer })
+
+      const { getState, dispatch, subscribe } = store
+
+      function render () {
+        value.innerHTML = getState()
+      }
+
+      subscribe(render)
+
+      const value = document.getElementById('value')
+      value.innerHTML = getState()
+
+      document.querySelector('#inc').addEventListener('click', () => {
+        dispatch(increment())
+      })
+
+      document.querySelector('#inc2').addEventListener('click', () => {
+        dispatch(increment(2))
+      })
+
+      document.querySelector('#inc-if-odd').addEventListener('click', () => {
+        if (getState() % 2) {
+          dispatch(increment())
+        }
+      })
+
+      document.querySelector('#dec').addEventListener('click', () => {
+        dispatch(decrement())
+      })
+
+      document.querySelector('#dec-async').addEventListener('click', () => {
+        setTimeout(() => {
+          dispatch(decrement())
+        }, 1000)
+      })
+    </script>
+  </body>
+</html>

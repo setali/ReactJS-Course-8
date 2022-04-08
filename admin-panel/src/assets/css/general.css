@@ -1,0 +1,18 @@
+@font-face {
+  font-family: sans;
+  src: url('../fonts/Iranian-Sans.ttf');
+}
+
+body {
+  font-family: sans;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.content {
+  margin: 2em 5em 0 2em;
+  padding: 2em;
+  background-color: white;
+}

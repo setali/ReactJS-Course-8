@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux example</title>
+  </head>
+  <body>
+    <span id="value"></span>
+    <button id="inc">+</button>
+    <button id="inc2">+2</button>
+    <button id="inc-if-odd">+ if odd</button>
+    <button id="dec">-</button>
+    <button id="dec-async">- async</button>
+
+    <script src="https://unpkg.com/redux@4.1.2/dist/redux.js"></script>
+
+    <script>
+      function reducer (state = 0, action) {
+        console.log(state, action)
+        switch (action.type) {
+          case 'INC':
+            return state + action.payload
+
+          case 'DEC':
+            return state - action.payload
+
+          default:
+            return state
+        }
+      }
+
+      const store = Redux.createStore(reducer)
+
+      const { getState, dispatch, subscribe } = store
+
+      function render () {
+        value.innerHTML = getState()
+      }
+
+      subscribe(render)
+
+      const value = document.getElementById('value')
+      value.innerHTML = getState()
+
+      function increment (payload = 1) {
+        return { type: 'INC', payload }
+      }
+
+      function decrement (payload = 1) {
+        return { type: 'DEC', payload }
+      }
+
+      document.querySelector('#inc').addEventListener('click', () => {
+        dispatch(increment())
+      })
+
+      document.querySelector('#inc2').addEventListener('click', () => {
+        dispatch(increment(2))
+      })
+
+      document.querySelector('#inc-if-odd').addEventListener('click', () => {
+        if (getState() % 2) {
+          dispatch(increment())
+        }
+      })
+
+      document.querySelector('#dec').addEventListener('click', () => {
+        dispatch(decrement())
+      })
+
+      document.querySelector('#dec-async').addEventListener('click', () => {
+        setTimeout(() => {
+          dispatch(decrement())
+        }, 1000)
+      })
+    </script>
+  </body>
+</html>
