@@ -1,9 +1,8 @@
 import { Divider } from 'antd'
-import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import request from '../../tools/request'
-import { setPost } from '../../redux/actions/post'
+import { getPost } from '../../redux/actions/post'
 
 export default function Full () {
   const { id } = useParams()
@@ -13,7 +12,7 @@ export default function Full () {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    request(`/posts/${id}`).then(response => dispatch(setPost(response.data)))
+    dispatch(getPost(id))
   }, [id])
 
   return (

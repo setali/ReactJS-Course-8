@@ -1,18 +1,13 @@
-import { connect } from 'react-redux'
 import { EyeOutlined } from '@ant-design/icons'
 import { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import request from '../../tools/request'
+import { getPosts } from '../../redux/actions/post'
 import Table from '../utils/Table'
-import { setPosts } from '../../redux/actions/post'
 
 class List extends Component {
-  state = { loading: true }
-
   componentDidMount () {
-    request('/posts')
-      .then(response => this.props.setItems(response.data))
-      .finally(() => this.setState({ loading: false }))
+    this.props.getItems()
   }
 
   columns = [
@@ -31,11 +26,7 @@ class List extends Component {
   render () {
     return (
       <div>
-        <Table
-          data={this.props.posts}
-          columns={this.columns}
-          loading={this.state.loading}
-        />
+        <Table data={this.props.posts} columns={this.columns} />
       </div>
     )
   }
@@ -49,7 +40,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setItems: data => dispatch(setPosts(data))
+    // setItems: data => dispatch(setPosts(data)),
+    getItems: () => dispatch(getPosts())
   }
 }
 
